@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Offline FIPS Conversion Tools\n\n### Installation\n\nTo install the demogromatics package using R:\n\n```r\ninstall.packages(\"devtools\")\nlibrary(\"devtools\")\ndevtools::install_github(\"nancyorgan/fips.tools\")\nlibrary(\"fips.tools\")\n```\n\n### About\n\nThis package provides tools for:\n- Batch-downloading blockgroup-level TIGER shapefiles by state\n- Converting coordinates of geocoded addresses to FIPS code \n\n### Credit\n\nThe USPS state abbreviation to FIPS state numeric code comes from the Census Bureau's \"FIPS Codes for the States and the District of Columbia\" table at www.census.gov/geo/reference/ansi_statetables.html. \n\nThe shapefiles also come www.census.gov/geo/maps-data/data/tiger-line.html. \n\n### Functions Overview\n\n```r\nFIPS_converter(id, lat, long, state_data)\ngrab_shapefiles(state_abbrv)\n\n```\n\n### Details, details!\nThe current version of demogromatics supports US Census 2010 FIPS codes. \n\nDependencies are R (>= 3.0.2), rgdal, rgeos, sp.\n",
+    "created" : 1503424725087.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1737946129",
+    "id" : "3B6FED3F",
+    "lastKnownWriteTime" : 1503425180,
+    "last_content_update" : 1503425180976,
+    "path" : "~/Documents/race_imputation/fips.tools/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}
