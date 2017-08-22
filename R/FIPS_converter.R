@@ -26,7 +26,7 @@ FIPS_converter = function(id, lat, long, state_data){
   final = over(dat, state_data)
   final$id = row.names(final)
   row.names(final) = c(1:length(id))
-  final = subset(final, select = c("id", "BKGPIDFP00"))
+  final = subset(final, select = c("id", "GEOID10"))
   names(final) = c("id", "FIPS")
   return(final)
 }
