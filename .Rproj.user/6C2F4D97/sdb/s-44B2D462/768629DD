@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "#' Download TIGER Shapefiles\n#'\n#' Downlaod shapefiles for a state based on the state abbreviation.\n#' @param state_abbrv The standard two-letter state abbreviation\n#' @export\n#' @examples\n#' MN = grab_shapefiles(\"MN\")\n#' Mayo_shapefiles = grab_shapefiles(c(\"MN\", \"WI\"))\n#' plot(Mayo_shapefiles) # Be careful, this is slow!\n\n\ngrab_shapefiles = function(state_abbrv){\n  state_data = list()\n  state_number = NULL\n  for(i in 1:length(unique(state_abbrv))){\n    state_number[i] = fipsdf$code[fipsdf$abbrv == state_abbrv[i]]\n    temp.dir = tempdir()\n    temp.file = tempfile()\n    download.file(url = paste0(\"https://www2.census.gov/geo/tiger/TIGER2010/BG/2000/tl_2010_\",\n                               state_number[i],\"_bg00.zip\"), destfile = temp.file)\n    data = unzip(zipfile = temp.file, exdir = temp.dir)\n    state_data[[i]] = readOGR(grep(\".shp$\", data, value = TRUE))\n    unlink(temp.dir)\n    unlink(temp.file)\n  }\n  final = do.call(rbind,c(state_data,list(makeUniqueIDs=TRUE)))\n  return(final)\n}\n\n# this = grab_shapefiles(c(\"MN\", \"WI\"))\n",
+    "contents" : "#' Download TIGER Shapefiles\n#'\n#' Downlaod shapefiles for a state based on the state abbreviation.\n#' @param state_abbrv The standard two-letter state abbreviation\n#' @export\n#' @examples\n#' MN = grab_shapefiles(\"MN\")\n#' Mayo_shapefiles = grab_shapefiles(c(\"MN\", \"WI\"))\n#' plot(Mayo_shapefiles) # Be careful, this is slow!\n\n\ngrab_shapefiles = function(state_abbrv){\n  state_data = list()\n  state_number = NULL\n  for(i in 1:length(unique(state_abbrv))){\n    state_number[i] = fipsdf$code[fipsdf$abbrv == state_abbrv[i]]\n    temp.dir = tempdir()\n    temp.file = tempfile()\n    download.file(url = paste0(\"https://www2.census.gov/geo/tiger/TIGER2010/BG/2010/tl_2010_\",\n                               state_number[i],\"_bg10.zip\"), destfile = temp.file)\n    data = unzip(zipfile = temp.file, exdir = temp.dir)\n    state_data[[i]] = readOGR(grep(\".shp$\", data, value = TRUE))\n    unlink(temp.dir)\n    unlink(temp.file)\n  }\n  final = do.call(rbind,c(state_data,list(makeUniqueIDs=TRUE)))\n  return(final)\n}\n\n# this = grab_shapefiles(c(\"MN\", \"WI\"))\n",
     "created" : 1503079865770.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "323607778",
+    "hash" : "477436718",
     "id" : "768629DD",
-    "lastKnownWriteTime" : 1503423808,
-    "last_content_update" : 1503423808684,
+    "lastKnownWriteTime" : 1503430554,
+    "last_content_update" : 1503430554323,
     "path" : "~/Documents/race_imputation/fips.tools/R/grab_shapefiles.R",
     "project_path" : "R/grab_shapefiles.R",
     "properties" : {

@@ -16,8 +16,8 @@ grab_shapefiles = function(state_abbrv){
     state_number[i] = fipsdf$code[fipsdf$abbrv == state_abbrv[i]]
     temp.dir = tempdir()
     temp.file = tempfile()
-    download.file(url = paste0("https://www2.census.gov/geo/tiger/TIGER2010/BG/2000/tl_2010_",
-                               state_number[i],"_bg00.zip"), destfile = temp.file)
+    download.file(url = paste0("https://www2.census.gov/geo/tiger/TIGER2010/BG/2010/tl_2010_",
+                               state_number[i],"_bg10.zip"), destfile = temp.file)
     data = unzip(zipfile = temp.file, exdir = temp.dir)
     state_data[[i]] = readOGR(grep(".shp$", data, value = TRUE))
     unlink(temp.dir)
