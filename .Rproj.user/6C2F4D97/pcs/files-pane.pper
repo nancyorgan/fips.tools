@@ -1,0 +1,9 @@
+{
+    "path" : "~/Documents/race_imputation/fips.tools",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
