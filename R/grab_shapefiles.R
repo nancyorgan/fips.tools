@@ -7,7 +7,7 @@
 #' MN = grab_shapefiles("MN")
 #' Mayo_shapefiles = grab_shapefiles(c("MN", "WI"))
 #' plot(Mayo_shapefiles) # Be careful, this is slow!
-
+#' whole_us = grab_shapefiles("everything")
 
 grab_shapefiles = function(state_abbrv){
   if(state_abbrv == "everything"){
@@ -30,4 +30,3 @@ grab_shapefiles = function(state_abbrv){
   return(final)
 }
 
-this = grab_shapefiles("everything")
