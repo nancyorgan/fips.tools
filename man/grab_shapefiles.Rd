@@ -7,7 +7,7 @@
 grab_shapefiles(state_abbrv)
 }
 \arguments{
-\item{state_abbrv}{The standard two-letter state abbreviation}
+\item{state_abbrv}{The standard two-letter state abbreviation. If you want to download the whole US, set equal to "everything"}
 }
 \description{
 Downlaod shapefiles for a state based on the state abbreviation.
@@ -17,3 +17,4 @@ MN = grab_shapefiles("MN")
 Mayo_shapefiles = grab_shapefiles(c("MN", "WI"))
 plot(Mayo_shapefiles) # Be careful, this is slow!
 }
+whole_us = grab_shapefiles("everything")

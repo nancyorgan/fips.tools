@@ -10,6 +10,9 @@
 
 
 grab_shapefiles = function(state_abbrv){
+  if(state_abbrv == "everything"){
+    state_abbrv = as.vector(fipsdf$abbrv)
+  }
   state_data = list()
   state_number = NULL
   for(i in 1:length(unique(state_abbrv))){
@@ -27,4 +30,4 @@ grab_shapefiles = function(state_abbrv){
   return(final)
 }
 
-# this = grab_shapefiles(c("MN", "WI"))
+this = grab_shapefiles("everything")

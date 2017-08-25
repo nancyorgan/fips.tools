@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "library(rgeos)\nlibrary(sp)\nlibrary(rgdal)\nsetwd(\"/Users/organn/Documents/race_imputation/sitewise pilot/\")\n\n####################################################################################\n########### Nancy's Results ########################################################\nwith_original = read.table(\"nancygeocoded/geocoded_sitewise_with_SES.txt\", sep = \",\", header = TRUE)\nwith_original = with_original[with_original$state == \"MN\",]\ndat = subset(with_original, select = c(\"id\", \"lat\", \"long\"))\n\n# MN = 27, WI = 55\nMN = grab_shapefiles(\"MN\")\nthis = FIPS_converter(dat$id, dat$lat, dat$long, MN)\nView(this)\n\nurl = \"https://www.census.gov/geo/reference/ansi_statetables.html\"\nwebpage <- readLines(url)\nreadHTMLTable(webpage, header = T, stringsAsFactors = F)\nfipsdf <- readHTMLTable(webpage, header = T, stringsAsFactors = F)[[1]]\nnames(fipsdf) = c(\"name\", \"code\", \"abbrv\")\nfipsdf = subset(fipsdf, select = c(\"abbrv\", \"code\"))\nwrite.csv(fipsdf, \"/Users/organn/Documents/race_imputation/fips.tools/data/fips_codes.csv\", row.names = FALSE)\nfipsdf$`FIPS State Numeric Code`[fipsdf$`Official USPS Code` == \"MN\"]\n",
+    "contents" : "library(rgeos)\nlibrary(sp)\nlibrary(rgdal)\nsetwd(\"/Users/organn/Documents/race_imputation/sitewise pilot/\")\n\n####################################################################################\n########### Nancy's Results ########################################################\nwith_original = read.table(\"nancygeocoded/geocoded_sitewise_with_SES.txt\", sep = \",\", header = TRUE)\nwith_original = with_original[with_original$state == \"MN\",]\ndat = subset(with_original, select = c(\"id\", \"lat\", \"long\"))\n\n# MN = 27, WI = 55\nMN = grab_shapefiles(\"MN\")\nthis = FIPS_converter(dat$id, dat$lat, dat$long, MN)\nView(this)\n\nurl = \"https://www.census.gov/geo/reference/ansi_statetables.html\"\nwebpage <- readLines(url)\nlibrary(\"XML\")\nreadHTMLTable(webpage, header = T, stringsAsFactors = F)\nfipsdf <- readHTMLTable(webpage, header = T, stringsAsFactors = F)[[1]]\nnames(fipsdf) = c(\"name\", \"code\", \"abbrv\")\nfipsdf = subset(fipsdf, select = c(\"abbrv\", \"code\"))\nfipsdf$code = as.character(fipsdf$code)\nhead(fipsdf)\nsave(fipsdf, file = \"/Users/organn/Documents/race_imputation/fips.tools/data/fipsdf.Rdata\")\nwrite.csv(fipsdf, \"/Users/organn/Documents/race_imputation/fips.tools/data/fips_codes.csv\", row.names = FALSE)\nfipsdf$`FIPS State Numeric Code`[fipsdf$`Official USPS Code` == \"MN\"]\n",
     "created" : 1503080221201.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2148382609",
+    "hash" : "2420707910",
     "id" : "30494506",
-    "lastKnownWriteTime" : 1503082760,
-    "last_content_update" : 1503082760920,
+    "lastKnownWriteTime" : 1503683884,
+    "last_content_update" : 1503683884183,
     "path" : "~/Documents/LIRE/Indication/FIPS_tool.R",
     "project_path" : null,
     "properties" : {
