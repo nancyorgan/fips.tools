@@ -36,5 +36,3 @@ FIPS_converter = function(id, lat, long, state_data, dataset = NULL){
     return(left_join(dataset, final))
   }
 }
-
-git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch <data/us_shapefiles.RData>' HEAD
