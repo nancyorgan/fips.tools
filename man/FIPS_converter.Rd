@@ -4,7 +4,7 @@
 \alias{FIPS_converter}
 \title{Convert coordinates to FIPS}
 \usage{
-FIPS_converter(id, lat, long, state_data)
+FIPS_converter(id, lat, long, state_data, dataset = NULL)
 }
 \arguments{
 \item{id}{Id to be preserved in the output}
@@ -14,6 +14,8 @@ FIPS_converter(id, lat, long, state_data)
 \item{long}{Longitude}
 
 \item{state_data}{Shapefiles for the state}
+
+\item{dataset}{The data set you would like to join the results onto}
 }
 \description{
 Convert geocoded coordinates to a FIPS code. Can be used for a data set or a single data point.

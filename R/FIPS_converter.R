@@ -5,6 +5,7 @@
 #' @param lat Latiutude
 #' @param long Longitude
 #' @param state_data Shapefiles for the state
+#' @param dataset The data set you would like to join the results onto
 #' @export
 #' @examples
 #' Mayo = grab_shapefiles(c("MN", "WI"))
@@ -36,3 +37,4 @@ FIPS_converter = function(id, lat, long, state_data, dataset = NULL){
   }
 }
 
+git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch <data/us_shapefiles.RData>' HEAD
