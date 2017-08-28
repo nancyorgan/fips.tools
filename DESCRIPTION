@@ -9,7 +9,8 @@ Depends:
 	R (>= 3.0.2),
 	rgdal,
 	rgeos,
-	sp
+	sp,
+	dplyr
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

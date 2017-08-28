@@ -1,1 +1,2 @@
 load("/Users/organn/Documents/race_imputation/fips.tools/data/fipsdf.RData")
+load("/Users/organn/Documents/race_imputation/fips.tools/data/us_shapefiles.RData")

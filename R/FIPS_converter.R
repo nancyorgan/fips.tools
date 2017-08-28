@@ -18,7 +18,7 @@
 #' 2 Some house 2 270419509001
 #' 3 Some house 3 271119615001
 
-FIPS_converter = function(id, lat, long, state_data){
+FIPS_converter = function(id, lat, long, state_data, dataset = NULL){
   dat = data.frame(id, lat, long)
   rownames(dat) = dat$id
   coordinates(dat) <- ~ long + lat
@@ -28,6 +28,11 @@ FIPS_converter = function(id, lat, long, state_data){
   row.names(final) = c(1:length(id))
   final = subset(final, select = c("id", "GEOID10"))
   names(final) = c("id", "FIPS")
-  return(final)
+  if(is.null(dataset)){
+    return(final)
+  }
+  else{
+    return(left_join(dataset, final))
+  }
 }
 
